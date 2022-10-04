@@ -1,0 +1,15 @@
+{
+  "name": "bootcampqa2022",
+  "version": "1.0.0",
+  "description": "Bootcamp CI&T de Automação com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Natália Belo",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^10.8.0",
+    "cypress-file-upload": "^5.0.8"
+  }
+}
