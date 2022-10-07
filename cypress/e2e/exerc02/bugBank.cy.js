@@ -10,31 +10,23 @@ describe("Exercício Bug Bank", () => {
   });
 
   it("Registrar cliente com saldo em conta", () => {
-    var user = {
-      nome: "Natália",
-      email: "teste@teste.com",
-      password: "teste123",
-    };
+    const userbugbank = require("../../fixtures/userbugbank");
 
     var bugbank = new BugBankPage();
 
     bugbank.go();
-    bugbank.fillForm(user);
+    bugbank.fillForm(userbugbank);
 
     cy.get('p[id="modalText"]').contains("sucesso");
     cy.get("#btnCloseModal").click();
   });
 
   it("Login com cliente criado", () => {
-    var user = {
-      nome: "Natália",
-      email: "teste@teste.com",
-      password: "teste123",
-    };
+    const userbugbank = require("../../fixtures/userbugbank");
 
     var bugbank = new BugBankPage();
 
-    bugbank.login(user);
+    bugbank.login(userbugbank);
 
     cy.get(
       "div.home__ContainerText-sc-1auj767-7.iDA-Ddb  p:nth-child(1)"
