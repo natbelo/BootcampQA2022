@@ -23,4 +23,9 @@ describe("Exercício Ultimate QA", () => {
     cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
     cy.get('input[type="radio"][value="female"]').check();
   });
+
+  it("Seleção de checkbox", () => {
+    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
+    cy.get('input[type="checkbox"]').check();
+  });
 });
