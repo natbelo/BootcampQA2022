@@ -28,4 +28,10 @@ describe("Exercício Ultimate QA", () => {
     cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
     cy.get('input[type="checkbox"]').check();
   });
+
+  it("Seleção de dropdown", () => {
+    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
+    cy.get("select").select("volvo").should("have.value", "volvo");
+    cy.get("select").select("audi").should("have.value", "audi");
+  });
 });
