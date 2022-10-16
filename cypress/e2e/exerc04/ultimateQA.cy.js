@@ -1,6 +1,8 @@
 describe("Exercício Ultimate QA", () => {
-  it("Validar elemento Clickable Icon", () => {
+  beforeEach(() => {
     cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
+  });
+  it("Validar elemento Clickable Icon", () => {
     cy.get('a[href="/link-success"]').should("be.visible").click();
     cy.get("div:nth-child(1)  h1").should("have.text", "Link success");
     cy.get('a[href="https://ultimateqa.com/"]').should("be.visible").click();
@@ -20,23 +22,19 @@ describe("Exercício Ultimate QA", () => {
   });
 
   it("Seleção de radio button", () => {
-    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
-    cy.get('input[type="radio"][value="female"]').check();
+    cy.get('input[type="radio"][value="female"]').check().should("be.checked");
   });
 
   it("Seleção de checkbox", () => {
-    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
-    cy.get('input[type="checkbox"]').check();
+    cy.get('input[type="checkbox"]').check().should("be.checked");
   });
 
   it("Seleção de dropdown", () => {
-    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
     cy.get("select").select("volvo").should("have.value", "volvo");
     cy.get("select").select("audi").should("have.value", "audi");
   });
 
   it("Seleção de lista", () => {
-    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
     cy.get("li.et_pb_tab_1").should("have.text", "Tab 2");
     cy.get("li.et_pb_tab_0.et_pb_tab_active").should("have.text", "Tab 1");
   });
