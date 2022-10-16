@@ -34,4 +34,10 @@ describe("Exercício Ultimate QA", () => {
     cy.get("select").select("volvo").should("have.value", "volvo");
     cy.get("select").select("audi").should("have.value", "audi");
   });
+
+  it("Seleção de lista", () => {
+    cy.visit("https://ultimateqa.com/simple-html-elements-for-automation/");
+    cy.get("li.et_pb_tab_1").should("have.text", "Tab 2");
+    cy.get("li.et_pb_tab_0.et_pb_tab_active").should("have.text", "Tab 1");
+  });
 });
