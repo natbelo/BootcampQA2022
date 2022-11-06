@@ -16,20 +16,20 @@ describe("Web Driver UNiversity", () => {
     cy.get(".modal-footer > .btn", { timeout: 15000 }).click();
   });
 
-  it("Iframe", () => {
+  it.only("Iframe", () => {
     cy.get('a[href="IFrame/index.html"]')
       .should("be.visible")
       .invoke("removeAttr", "target")
       .click();
-    cy.frameLoaded("iframe[role='presentation']");
-    cy.iframe().xpath("//span[text()='Maps']").click();
-    cy.get('a[href="../Contact-Us/contactus.html"]', { timeout: 15000 })
+    cy.frameLoaded("#frame");
+    cy.iframe("#frame")
+      .find('a[href="../Contact-Us/contactus.html"]')
       .should("be.visible")
       .invoke("removeAttr", "target")
       .click();
   });
 
-  it.only("Date Picker", () => {
+  it("Date Picker", () => {
     const hoje = new Date();
     const dia = hoje.getDate().toString().padStart(2, "0");
     const mes = String(hoje.getMonth() + 1).padStart(2, "0");
